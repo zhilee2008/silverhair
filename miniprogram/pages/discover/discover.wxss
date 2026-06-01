@@ -1,0 +1,55 @@
+/* pages/discover/discover.wxss */
+
+.header {
+  padding: 20rpx 24rpx 32rpx;
+}
+
+.header-title {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8rpx;
+}
+
+.header-desc {
+  font-size: 28rpx;
+  color: #888888;
+}
+
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 24rpx;
+  gap: 20rpx;
+}
+
+.category-card {
+  width: calc(50% - 10rpx);
+  padding: 32rpx 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.category-card:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.category-icon {
+  font-size: 64rpx;
+  margin-bottom: 16rpx;
+}
+
+.category-name {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8rpx;
+}
+
+.category-desc {
+  font-size: 24rpx;
+  color: #999999;
+}
