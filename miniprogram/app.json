@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/discover/discover",
+    "pages/publish/publish",
+    "pages/me/me",
+    "pages/detail/detail",
+    "pages/myActivities/myActivities"
+  ],
+  "window": {
+    "backgroundColor": "#F5F5F5",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "最美你和我",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#D4515E",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "发现",
+        "iconPath": "images/icons/examples.png",
+        "selectedIconPath": "images/icons/examples-active.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
+        "iconPath": "images/icons/business.png",
+        "selectedIconPath": "images/icons/business-active.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/icons/usercenter.png",
+        "selectedIconPath": "images/icons/usercenter-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于活动地点选择"
+    }
+  }
+}
