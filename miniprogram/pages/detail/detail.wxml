@@ -1,0 +1,104 @@
+<!--pages/detail/detail.wxml-->
+<view class="container" wx:if="{{activity}}">
+  <!-- 活动图片 -->
+  <view class="detail-images" wx:if="{{activity.images && activity.images.length > 0}}">
+    <swiper class="image-swiper" indicator-dots="{{activity.images.length > 1}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#FFFFFF" circular>
+      <swiper-item wx:for="{{activity.images}}" wx:key="*this">
+        <image class="swiper-img" src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 活动信息卡片 -->
+  <view class="card detail-card">
+    <view class="detail-title">{{activity.title}}</view>
+    <view class="detail-status">
+      <view class="status-badge status-{{activity.status}}">
+        {{activity.status === 'open' ? '报名中' : activity.status === 'full' ? '已满员' : activity.status === 'ended' ? '已结束' : '已取消'}}
+      </view>
+      <view class="category-badge">{{activity.categoryName}}</view>
+    </view>
+  </view>
+
+  <!-- 时间地点 -->
+  <view class="card info-card">
+    <view class="info-row" bindtap="onViewMap">
+      <view class="info-icon">📅</view>
+      <view class="info-content">
+        <view class="info-label">活动时间</view>
+        <view class="info-value">{{activity.date}} {{activity.startTime}} - {{activity.endTime}}</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="info-row" bindtap="onViewMap">
+      <view class="info-icon">📍</view>
+      <view class="info-content">
+        <view class="info-label">活动地点</view>
+        <view class="info-value">{{activity.location.name}}</view>
+        <view class="info-sub" wx:if="{{activity.location.address}}">{{activity.location.address}}</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="info-row">
+      <view class="info-icon">👥</view>
+      <view class="info-content">
+        <view class="info-label">参与人数</view>
+        <view class="info-value">{{activity.currentParticipants}} / {{activity.maxParticipants}} 人</view>
+        <!-- 进度条 -->
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{activity.currentParticipants / activity.maxParticipants * 100}}%"></view>
+        </view>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="info-row">
+      <view class="info-icon">👤</view>
+      <view class="info-content">
+        <view class="info-label">发起人</view>
+        <view class="info-value">{{activity.organizer.nickName || '热心邻居'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 活动介绍 -->
+  <view class="card">
+    <view class="section-title">活动介绍</view>
+    <view class="description">{{activity.description || '暂无详细介绍'}}</view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar safe-bottom">
+    <!-- 分享按钮 -->
+    <button class="share-btn" open-type="share">
+      <text class="share-icon">🔄</text>
+      <text class="share-text">分享</text>
+    </button>
+
+    <!-- 组织者操作 -->
+    <block wx:if="{{isOrganizer}}">
+      <view class="btn-secondary cancel-btn" bindtap="onCancelActivity" wx:if="{{activity.status === 'open'}}">
+        取消活动
+      </view>
+    </block>
+
+    <!-- 普通用户操作 -->
+    <block wx:else>
+      <!-- 已报名 -->
+      <view class="btn-secondary cancel-btn" wx:if="{{isRegistered && activity.status === 'open'}}" bindtap="onCancelRegister">
+        取消报名
+      </view>
+      <!-- 未报名 - 报名中 -->
+      <view class="btn-primary register-btn" wx:elif="{{activity.status === 'open'}}" bindtap="onRegister">
+        立即报名
+      </view>
+      <!-- 已满员 -->
+      <view class="btn-disabled register-btn" wx:elif="{{activity.status === 'full'}}">
+        已满员
+      </view>
+      <!-- 已结束 -->
+      <view class="btn-disabled register-btn" wx:elif="{{activity.status === 'ended'}}">
+        活动已结束
+      </view>
+    </block>
+  </view>
+</view>
