@@ -1,0 +1,53 @@
+/* pages/myActivities/myActivities.wxss */
+
+.activity-card {
+  margin-bottom: 20rpx;
+}
+
+.activity-card:active {
+  opacity: 0.85;
+}
+
+.activity-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16rpx;
+}
+
+.activity-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.meta-icon {
+  font-size: 26rpx;
+  margin-right: 8rpx;
+}
+
+.meta-text {
+  font-size: 26rpx;
+  color: #888888;
+}
+
+.activity-status {
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.status-open { color: #07C160; }
+.status-full { color: #FF9500; }
+.status-ended { color: #999999; }
+.status-cancelled { color: #FF3B30; }
+
+.loading-box {
+  text-align: center;
+  padding: 60rpx;
+  color: #999999;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+}
