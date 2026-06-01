@@ -1,0 +1,82 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 顶部欢迎语 -->
+  <view class="header">
+    <view class="header-title">👋 最美你和我</view>
+    <view class="header-desc">广场舞、乐器、太极...丰富您的退休生活</view>
+  </view>
+
+  <!-- 分类筛选 -->
+  <scroll-view class="category-scroll" scroll-x enable-flex>
+    <view
+      class="category-tag {{currentCategory === item.key ? 'category-tag-active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onCategoryTap"
+    >
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 活动列表 -->
+  <view class="activity-list" wx:if="{{activityList.length > 0}}">
+    <view
+      class="activity-card card"
+      wx:for="{{activityList}}"
+      wx:key="_id"
+      data-id="{{item._id}}"
+      bindtap="onActivityTap"
+    >
+      <!-- 活动图片 -->
+      <view class="activity-image" wx:if="{{item.images && item.images.length > 0}}">
+        <image class="activity-img" src="{{item.images[0]}}" mode="aspectFill"></image>
+      </view>
+      <view class="activity-image activity-image-placeholder" wx:else>
+        <text class="placeholder-text">{{item.categoryName}}</text>
+      </view>
+
+      <!-- 活动信息 -->
+      <view class="activity-info">
+        <view class="activity-title">{{item.title}}</view>
+        <view class="activity-meta">
+          <view class="meta-row">
+            <text class="meta-icon">📅</text>
+            <text class="meta-text">{{item.date}} {{item.startTime}}-{{item.endTime}}</text>
+          </view>
+          <view class="meta-row">
+            <text class="meta-icon">📍</text>
+            <text class="meta-text">{{item.location.name}}</text>
+          </view>
+          <view class="meta-row">
+            <text class="meta-icon">👥</text>
+            <text class="meta-text">{{item.currentParticipants}}/{{item.maxParticipants}}人</text>
+          </view>
+        </view>
+        <!-- 状态标签 -->
+        <view class="activity-footer">
+          <view class="activity-category-tag tag-small">{{item.categoryName}}</view>
+          <view class="activity-status status-{{item.status}}">
+            {{item.status === 'open' ? '报名中' : item.status === 'full' ? '已满员' : item.status === 'ended' ? '已结束' : '已取消'}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-box" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 没有更多 -->
+  <view class="no-more" wx:if="{{!hasMore && activityList.length > 0 && !loading}}">
+    <text>— 没有更多活动了 —</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!loading && activityList.length === 0}}">
+    <text class="empty-icon">🎯</text>
+    <text>暂无活动，快来发布第一个吧</text>
+  </view>
+</view>
