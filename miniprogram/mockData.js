@@ -1,13 +1,40 @@
 // mockData.js - 模拟数据（未开通云开发时使用）
 
-// 判断是否为模拟模式
 const isMock = () => {
   const app = getApp();
   return !app.globalData || !app.globalData.env;
 };
 
-// 模拟活动列表数据
-const mockActivities = [
+// 轮播图数据
+const mockBanners = [
+  {
+    id: 'b1',
+    image: '',
+    title: '广场舞大赛火热报名中',
+    subtitle: '展示你的风采，赢取丰厚奖品',
+    gradient: 'linear-gradient(135deg, #D4515E, #FF8A65)',
+    icon: '💃',
+  },
+  {
+    id: 'b2',
+    image: '',
+    title: '免费二胡体验课',
+    subtitle: '零基础也能学，名额有限',
+    gradient: 'linear-gradient(135deg, #4285F4, #64B5F6)',
+    icon: '🎵',
+  },
+  {
+    id: 'b3',
+    image: '',
+    title: '周末徒步活动',
+    subtitle: '走进自然，呼吸新鲜空气',
+    gradient: 'linear-gradient(135deg, #4CAF50, #81C784)',
+    icon: '🚶',
+  },
+];
+
+// 热门推荐活动
+const mockHotActivities = [
   {
     _id: 'mock001',
     title: '晨光广场舞 - 每天快乐舞起来',
@@ -17,22 +44,14 @@ const mockActivities = [
     date: '2026-06-05',
     startTime: '07:00',
     endTime: '09:00',
-    location: {
-      name: '人民公园中心广场',
-      address: '建设路128号人民公园内',
-      latitude: 30.5728,
-      longitude: 104.0668,
-    },
+    location: { name: '人民公园中心广场', address: '建设路128号人民公园内', latitude: 30.5728, longitude: 104.0668 },
     maxParticipants: 40,
     currentParticipants: 28,
-    organizer: {
-      openid: 'mock_organizer_1',
-      nickName: '快乐王阿姨',
-      avatarUrl: '',
-    },
+    organizer: { openid: 'mock_o1', nickName: '快乐王阿姨', avatarUrl: '' },
     images: [],
     status: 'open',
     createTime: '2026-06-01T08:00:00Z',
+    tags: ['免费', '有老师带教', '每日活动'],
   },
   {
     _id: 'mock002',
@@ -43,48 +62,32 @@ const mockActivities = [
     date: '2026-06-08',
     startTime: '14:00',
     endTime: '16:00',
-    location: {
-      name: '社区文化活动中心',
-      address: '幸福路56号3楼多功能厅',
-      latitude: 30.58,
-      longitude: 104.07,
-    },
+    location: { name: '社区文化活动中心', address: '幸福路56号3楼多功能厅', latitude: 30.58, longitude: 104.07 },
     maxParticipants: 15,
     currentParticipants: 12,
-    organizer: {
-      openid: 'mock_organizer_2',
-      nickName: '李老师',
-      avatarUrl: '',
-    },
+    organizer: { openid: 'mock_o2', nickName: '李老师', avatarUrl: '' },
     images: [],
     status: 'open',
     createTime: '2026-06-01T10:00:00Z',
+    tags: ['零基础', '提供乐器', '名师授课'],
   },
   {
     _id: 'mock003',
     title: '太极拳晨练班 - 修身养性',
     category: 'taichi',
     categoryName: '太极养生',
-    description: '太极拳是中国传统养生运动，动作柔和缓慢，特别适合中老年人练习。\n\n本期学习杨式太极拳24式，由张师傅亲自教授。张师傅习练太极30余年，教学经验丰富。\n\n📍 集合地点：湖滨公园北门入口处',
+    description: '太极拳是中国传统养生运动，动作柔和缓慢，特别适合中老年人练习。\n\n本期学习杨式太极拳24式，由张师傅亲自教授。张师傅习练太极30余年，教学经验丰富。',
     date: '2026-06-10',
     startTime: '06:30',
     endTime: '08:00',
-    location: {
-      name: '湖滨公园北门广场',
-      address: '湖滨路88号',
-      latitude: 30.59,
-      longitude: 104.08,
-    },
+    location: { name: '湖滨公园北门广场', address: '湖滨路88号', latitude: 30.59, longitude: 104.08 },
     maxParticipants: 25,
     currentParticipants: 25,
-    organizer: {
-      openid: 'mock_organizer_3',
-      nickName: '张师傅',
-      avatarUrl: '',
-    },
+    organizer: { openid: 'mock_o3', nickName: '张师傅', avatarUrl: '' },
     images: [],
     status: 'full',
     createTime: '2026-05-30T07:00:00Z',
+    tags: ['名师授课', '已满员'],
   },
   {
     _id: 'mock004',
@@ -95,153 +98,144 @@ const mockActivities = [
     date: '2026-06-12',
     startTime: '09:30',
     endTime: '11:30',
-    location: {
-      name: '区图书馆三楼书画室',
-      address: '文化大道200号',
-      latitude: 30.56,
-      longitude: 104.05,
-    },
+    location: { name: '区图书馆三楼书画室', address: '文化大道200号', latitude: 30.56, longitude: 104.05 },
     maxParticipants: 20,
     currentParticipants: 8,
-    organizer: {
-      openid: 'mock_organizer_4',
-      nickName: '陈老师',
-      avatarUrl: '',
-    },
+    organizer: { openid: 'mock_o4', nickName: '陈老师', avatarUrl: '' },
     images: [],
     status: 'open',
     createTime: '2026-05-29T09:00:00Z',
+    tags: ['免费', '提供文房四宝'],
   },
   {
     _id: 'mock005',
     title: '社区合唱团招募 - 唱响夕阳红',
     category: 'chorus',
     categoryName: '合唱朗诵',
-    description: '社区夕阳红合唱团开始招募新成员啦！\n\n🎵 排练曲目：经典红歌、民歌、通俗歌曲\n📅 每周三、周六下午排练\n🎤 定期参加社区文艺演出\n\n无需专业基础，只要热爱唱歌就可以加入！',
+    description: '社区夕阳红合唱团开始招募新成员啦！\n\n🎵 排练曲目：经典红歌、民歌、通俗歌曲\n📅 每周三、周六下午排练\n🎤 定期参加社区文艺演出',
     date: '2026-06-15',
     startTime: '15:00',
     endTime: '17:00',
-    location: {
-      name: '街道办事处大礼堂',
-      address: '政府路100号',
-      latitude: 30.57,
-      longitude: 104.06,
-    },
+    location: { name: '街道办事处大礼堂', address: '政府路100号', latitude: 30.57, longitude: 104.06 },
     maxParticipants: 50,
     currentParticipants: 35,
-    organizer: {
-      openid: 'mock_organizer_5',
-      nickName: '刘团长',
-      avatarUrl: '',
-    },
+    organizer: { openid: 'mock_o5', nickName: '刘团长', avatarUrl: '' },
     images: [],
     status: 'open',
     createTime: '2026-05-28T15:00:00Z',
+    tags: ['长期活动', '有演出机会'],
   },
   {
     _id: 'mock006',
     title: '象棋友谊赛 - 以棋会友',
     category: 'chess',
     categoryName: '棋牌娱乐',
-    description: '社区象棋友谊赛，切磋棋艺，以棋会友！\n\n🏆 赛制：五轮瑞士制积分赛\n🎁 奖品：前三名可获得精美象棋一副\n🍵 现场提供茶水点心\n\n欢迎所有象棋爱好者参加，观棋也欢迎！',
+    description: '社区象棋友谊赛，切磋棋艺，以棋会友！\n\n🏆 赛制：五轮瑞士制积分赛\n🎁 奖品：前三名可获得精美象棋一副\n🍵 现场提供茶水点心',
     date: '2026-06-18',
     startTime: '09:00',
     endTime: '12:00',
-    location: {
-      name: '社区老年活动中心',
-      address: '和平路33号',
-      latitude: 30.58,
-      longitude: 104.04,
-    },
+    location: { name: '社区老年活动中心', address: '和平路33号', latitude: 30.58, longitude: 104.04 },
     maxParticipants: 32,
     currentParticipants: 18,
-    organizer: {
-      openid: 'mock_organizer_6',
-      nickName: '赵大爷',
-      avatarUrl: '',
-    },
+    organizer: { openid: 'mock_o6', nickName: '赵大爷', avatarUrl: '' },
     images: [],
     status: 'open',
     createTime: '2026-05-27T10:00:00Z',
+    tags: ['有奖品', '提供茶点'],
   },
   {
     _id: 'mock007',
     title: '周末郊外徒步 - 走进自然',
     category: 'hiking',
     categoryName: '户外徒步',
-    description: '周末一起去郊外走走，呼吸新鲜空气！\n\n🥾 路线：湿地公园环湖步道（约5公里，平路）\n⏰ 全程约2.5小时，节奏舒缓\n📋 自备：饮用水、防晒帽、舒适运动鞋\n\n集合后统一出发，有领队带队。下雨自动取消。',
+    description: '周末一起去郊外走走，呼吸新鲜空气！\n\n🥾 路线：湿地公园环湖步道（约5公里，平路）\n⏰ 全程约2.5小时，节奏舒缓',
     date: '2026-06-20',
     startTime: '08:00',
     endTime: '11:00',
-    location: {
-      name: '湿地公园东门停车场',
-      address: '环城路外湿地公园东门',
-      latitude: 30.60,
-      longitude: 104.10,
-    },
+    location: { name: '湿地公园东门停车场', address: '环城路外湿地公园东门', latitude: 30.60, longitude: 104.10 },
     maxParticipants: 30,
     currentParticipants: 16,
-    organizer: {
-      openid: 'mock_organizer_7',
-      nickName: '户外老周',
-      avatarUrl: '',
-    },
+    organizer: { openid: 'mock_o7', nickName: '户外老周', avatarUrl: '' },
     images: [],
     status: 'open',
     createTime: '2026-05-25T08:00:00Z',
+    tags: ['有领队', '路线轻松'],
   },
   {
     _id: 'mock008',
     title: '葫芦丝零基础班 - 民族乐器之美',
     category: 'instrument',
     categoryName: '乐器学习',
-    description: '葫芦丝音色优美、入门简单，是特别适合中老年人学习的民族乐器。\n\n🎵 课程安排（共8节课）：\n第1-2节：认识葫芦丝、基本吹奏方法\n第3-4节：简单音阶练习\n第5-6节：《月光下的凤尾竹》入门\n第7-8节：完整曲目演奏\n\n葫芦丝可现场借用，也欢迎自备。',
+    description: '葫芦丝音色优美、入门简单，是特别适合中老年人学习的民族乐器。\n\n🎵 共8节课，从零到完整曲目演奏\n葫芦丝可现场借用，也欢迎自备。',
     date: '2026-06-22',
     startTime: '10:00',
     endTime: '11:30',
-    location: {
-      name: '社区文化活动中心',
-      address: '幸福路56号2楼教室',
-      latitude: 30.58,
-      longitude: 104.07,
-    },
+    location: { name: '社区文化活动中心', address: '幸福路56号2楼教室', latitude: 30.58, longitude: 104.07 },
     maxParticipants: 12,
     currentParticipants: 7,
-    organizer: {
-      openid: 'mock_organizer_8',
-      nickName: '杨老师',
-      avatarUrl: '',
-    },
+    organizer: { openid: 'mock_o8', nickName: '杨老师', avatarUrl: '' },
     images: [],
     status: 'open',
     createTime: '2026-05-24T10:00:00Z',
+    tags: ['零基础', '可借乐器'],
+  },
+  {
+    _id: 'mock009',
+    title: '国画入门 - 画一朵牡丹',
+    category: 'calligraphy',
+    categoryName: '书法绘画',
+    description: '国画体验课，教你用毛笔画一朵美丽的牡丹花。\n\n零基础也能参加，老师手把手教学。完成的作品可以带回家！',
+    date: '2026-06-25',
+    startTime: '14:00',
+    endTime: '16:30',
+    location: { name: '区文化馆', address: '文化路66号', latitude: 30.57, longitude: 104.05 },
+    maxParticipants: 16,
+    currentParticipants: 5,
+    organizer: { openid: 'mock_o9', nickName: '周老师', avatarUrl: '' },
+    images: [],
+    status: 'open',
+    createTime: '2026-05-23T14:00:00Z',
+    tags: ['体验课', '免费', '作品带回家'],
+  },
+  {
+    _id: 'mock010',
+    title: '八段锦养生操 - 每日晨练',
+    category: 'taichi',
+    categoryName: '太极养生',
+    description: '八段锦是传统养生功法，八个简单动作，每天15分钟，强身健体。\n\n适合所有年龄段，特别推荐中老年人坚持练习。',
+    date: '2026-06-07',
+    startTime: '06:00',
+    endTime: '07:00',
+    location: { name: '翠湖公园南门', address: '翠湖南路1号', latitude: 30.56, longitude: 104.06 },
+    maxParticipants: 60,
+    currentParticipants: 42,
+    organizer: { openid: 'mock_o10', nickName: '林教练', avatarUrl: '' },
+    images: [],
+    status: 'open',
+    createTime: '2026-05-22T06:00:00Z',
+    tags: ['免费', '每日活动', '无需基础'],
   },
 ];
 
-// 根据分类筛选
+const mockActivities = mockHotActivities;
+
 const getMockActivities = (category) => {
   if (!category || category === 'all') return mockActivities;
   return mockActivities.filter(a => a.category === category);
 };
 
-// 根据 ID 获取详情
 const getMockDetail = (id) => {
   return mockActivities.find(a => a._id === id) || null;
 };
 
-// 获取我发布的活动（模拟）
-const getMockMyActivities = () => {
-  return [mockActivities[0], mockActivities[3]];
-};
-
-// 获取我参与的活动（模拟）
-const getMockMyRegistrations = () => {
-  return [mockActivities[1], mockActivities[4], mockActivities[6]];
-};
+const getMockMyActivities = () => [mockActivities[0], mockActivities[3]];
+const getMockMyRegistrations = () => [mockActivities[1], mockActivities[4], mockActivities[6]];
 
 module.exports = {
   isMock,
+  mockBanners,
   mockActivities,
+  mockHotActivities,
   getMockActivities,
   getMockDetail,
   getMockMyActivities,
