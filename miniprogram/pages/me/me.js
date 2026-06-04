@@ -180,6 +180,20 @@ Page({
     });
   },
 
+  // ==================== 关于 / 反馈 ====================
+  onAboutTap() {
+    wx.showModal({
+      title: '关于最美你和我',
+      content: '最美你和我 - 银发活动平台\n\n面向中老年群体的社区活动平台，让退休生活更加丰富多彩。\n\n广场舞、乐器学习、太极养生...总有一款适合你！\n\n版本：v1.0.0',
+      showCancel: false,
+      confirmText: '知道了',
+    });
+  },
+
+  onFeedbackTap() {
+    wx.showToast({ title: '反馈功能开发中', icon: 'none' });
+  },
+
   // ==================== 菜单点击 ====================
   onMenuTap(e) {
     const { key } = e.currentTarget.dataset;
