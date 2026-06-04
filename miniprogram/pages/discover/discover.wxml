@@ -1,22 +1,65 @@
 <!--pages/discover/discover.wxml-->
-<view class="container">
-  <view class="header">
-    <view class="header-title">🔍 发现精彩</view>
-    <view class="header-desc">选择你感兴趣的活动类别</view>
+<view class="page-container">
+  <!-- 顶部 -->
+  <view class="discover-header">
+    <view class="discover-title">发现精彩</view>
+    <view class="discover-subtitle">选择你感兴趣的活动类别</view>
   </view>
 
-  <view class="category-grid">
-    <view
-      class="category-card card"
-      wx:for="{{categories}}"
-      wx:key="key"
-      data-key="{{item.key}}"
-      data-name="{{item.name}}"
-      bindtap="onCategoryTap"
-    >
-      <view class="category-icon">{{item.icon}}</view>
-      <view class="category-name">{{item.name}}</view>
-      <view class="category-desc">{{item.desc}}</view>
+  <!-- 分类网格 -->
+  <view class="category-section">
+    <view class="category-grid">
+      <view
+        class="category-card card card-hover"
+        wx:for="{{categories}}"
+        wx:key="key"
+        data-key="{{item.key}}"
+        bindtap="onCategoryTap"
+      >
+        <view class="category-card-icon" style="background: {{item.gradient}}">
+          <text>{{item.icon}}</text>
+        </view>
+        <view class="category-card-name">{{item.name}}</view>
+        <view class="category-card-count" wx:if="{{item.count > 0}}">{{item.count}}个活动</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 编辑推荐 -->
+  <view class="recommend-section" wx:if="{{recommendList.length > 0}}">
+    <view class="section-header">
+      <view class="section-title">编辑推荐</view>
+    </view>
+    <view class="recommend-list">
+      <view
+        class="recommend-card card card-hover"
+        wx:for="{{recommendList}}"
+        wx:key="_id"
+        data-id="{{item._id}}"
+        bindtap="onActivityTap"
+      >
+        <view class="recommend-card-left">
+          <view class="recommend-icon">{{item.category === 'square_dance' ? '💃' : item.category === 'instrument' ? '🎵' : item.category === 'taichi' ? '🥋' : item.category === 'calligraphy' ? '🎨' : item.category === 'chorus' ? '🎤' : item.category === 'chess' ? '♟️' : item.category === 'hiking' ? '🚶' : '🎯'}}</view>
+        </view>
+        <view class="recommend-card-content">
+          <view class="recommend-title text-ellipsis">{{item.title}}</view>
+          <view class="recommend-meta">📅 {{item.date}} · 📍 {{item.location.name}}</view>
+          <view class="recommend-footer">
+            <view class="tag tag-primary">{{item.categoryName}}</view>
+            <view class="tag tag-{{item.status === 'open' ? 'success' : 'warning'}}">
+              {{item.status === 'open' ? '报名中' : '已满员'}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部标语 -->
+  <view class="discover-footer">
+    <view class="footer-slogan">
+      <text class="slogan-icon">❤️</text>
+      <text class="slogan-text">最美你和我，让生活更精彩</text>
     </view>
   </view>
 </view>
