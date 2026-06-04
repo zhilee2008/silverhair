@@ -1,53 +1,141 @@
 /* pages/myActivities/myActivities.wxss */
 
-.activity-card {
-  margin-bottom: 20rpx;
+.page-container {
+  min-height: 100vh;
+  background: #F7F8FA;
 }
 
-.activity-card:active {
-  opacity: 0.85;
-}
-
-.activity-title {
-  font-size: 34rpx;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 16rpx;
-}
-
-.activity-meta {
+/* Tab 切换 */
+.tabs {
   display: flex;
+  background: #FFFFFF;
+  padding: 0 28rpx;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 8rpx;
+  padding: 28rpx 0 20rpx;
+  position: relative;
 }
 
-.meta-icon {
-  font-size: 26rpx;
-  margin-right: 8rpx;
-}
-
-.meta-text {
-  font-size: 26rpx;
-  color: #888888;
-}
-
-.activity-status {
-  margin-left: 16rpx;
-  font-size: 24rpx;
+.tab-name {
+  font-size: 30rpx;
+  color: #999999;
   font-weight: 500;
 }
 
-.status-open { color: #07C160; }
-.status-full { color: #FF9500; }
-.status-ended { color: #999999; }
-.status-cancelled { color: #FF3B30; }
+.tab-active .tab-name {
+  color: #D4515E;
+  font-weight: 700;
+}
 
-.loading-box {
-  text-align: center;
-  padding: 60rpx;
+.tab-line {
+  position: absolute;
+  bottom: 0;
+  width: 48rpx;
+  height: 6rpx;
+  background: linear-gradient(90deg, #D4515E, #E8726E);
+  border-radius: 3rpx;
+}
+
+/* 活动列表 */
+.activity-list {
+  padding: 20rpx 28rpx;
+}
+
+.activity-card {
+  margin-bottom: 16rpx;
+  padding: 24rpx;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.card-category {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.card-category-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 12rpx;
+  background: linear-gradient(135deg, #FFF0ED, #FFE0DA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+}
+
+.card-category-name {
+  font-size: 26rpx;
+  color: #666666;
+  font-weight: 500;
+}
+
+.card-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 16rpx;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.card-meta-item {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999999;
+  gap: 8rpx;
+}
+
+.meta-dot {
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #F5F5F5;
+}
+
+.card-people {
+  font-size: 26rpx;
+}
+
+.people-current {
+  font-weight: 700;
+  color: #D4515E;
+  font-size: 30rpx;
+}
+
+.people-max {
   color: #999999;
 }
 
-.empty-icon {
-  font-size: 80rpx;
+.card-arrow {
+  font-size: 24rpx;
+  color: #D4515E;
+  font-weight: 500;
 }
