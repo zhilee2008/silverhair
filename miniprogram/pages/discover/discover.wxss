@@ -1,55 +1,147 @@
 /* pages/discover/discover.wxss */
 
-.header {
-  padding: 20rpx 24rpx 32rpx;
+.page-container {
+  padding-bottom: 140rpx;
 }
 
-.header-title {
+/* 头部 */
+.discover-header {
+  padding: 32rpx 28rpx 16rpx;
+}
+
+.discover-title {
   font-size: 44rpx;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #1A1A1A;
   margin-bottom: 8rpx;
 }
 
-.header-desc {
+.discover-subtitle {
   font-size: 28rpx;
-  color: #888888;
+  color: #999999;
+}
+
+/* 分类网格 */
+.category-section {
+  padding: 12rpx 28rpx;
 }
 
 .category-grid {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 24rpx;
-  gap: 20rpx;
+  gap: 16rpx;
 }
 
 .category-card {
-  width: calc(50% - 10rpx);
-  padding: 32rpx 28rpx;
+  width: calc(25% - 12rpx);
+  padding: 24rpx 12rpx;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   box-sizing: border-box;
 }
 
-.category-card:active {
-  opacity: 0.85;
-  transform: scale(0.98);
+.category-card-icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  margin-bottom: 12rpx;
 }
 
-.category-icon {
-  font-size: 64rpx;
+.category-card-name {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 4rpx;
+}
+
+.category-card-count {
+  font-size: 20rpx;
+  color: #999999;
+}
+
+/* 推荐 */
+.recommend-section {
+  padding: 0 28rpx;
+  margin-top: 16rpx;
+}
+
+.recommend-list {
+  margin-top: 4rpx;
+}
+
+.recommend-card {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
   margin-bottom: 16rpx;
 }
 
-.category-name {
-  font-size: 34rpx;
+.recommend-card-left {
+  flex-shrink: 0;
+  margin-right: 24rpx;
+}
+
+.recommend-icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 20rpx;
+  background: linear-gradient(135deg, #FFF0ED, #FFE0DA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+}
+
+.recommend-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.recommend-title {
+  font-size: 30rpx;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #1A1A1A;
   margin-bottom: 8rpx;
 }
 
-.category-desc {
+.recommend-meta {
   font-size: 24rpx;
   color: #999999;
+  margin-bottom: 10rpx;
+}
+
+.recommend-footer {
+  display: flex;
+  gap: 8rpx;
+}
+
+/* 底部标语 */
+.discover-footer {
+  padding: 60rpx 48rpx 32rpx;
+  text-align: center;
+}
+
+.footer-slogan {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #FFF0ED, #FFE8E3);
+  padding: 16rpx 36rpx;
+  border-radius: 36rpx;
+}
+
+.slogan-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.slogan-text {
+  font-size: 26rpx;
+  color: #D4515E;
+  font-weight: 500;
 }
