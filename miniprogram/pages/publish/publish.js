@@ -69,6 +69,17 @@ Page({
     this.setData({ 'formData.maxParticipants': Number(e.detail.value) || 20 });
   },
 
+  // 增加/减少人数
+  onIncrease() {
+    const val = Math.min(999, (this.data.formData.maxParticipants || 20) + 5);
+    this.setData({ 'formData.maxParticipants': val });
+  },
+
+  onDecrease() {
+    const val = Math.max(1, (this.data.formData.maxParticipants || 20) - 5);
+    this.setData({ 'formData.maxParticipants': val });
+  },
+
   // 选择地点
   onChooseLocation() {
     wx.chooseLocation({
