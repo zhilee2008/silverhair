@@ -1,181 +1,341 @@
 /* pages/index/index.wxss */
 
-.container {
-  padding-bottom: 20rpx;
+.page-container {
+  padding-bottom: 140rpx;
 }
 
-/* 头部 */
-.header {
-  padding: 20rpx 24rpx 16rpx;
-}
-
-.header-title {
-  font-size: 44rpx;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 8rpx;
-}
-
-.header-desc {
-  font-size: 28rpx;
-  color: #888888;
-}
-
-/* 分类滚动 */
-.category-scroll {
-  white-space: nowrap;
-  padding: 0 24rpx 24rpx;
-}
-
-.category-tag {
-  display: inline-block;
-  padding: 14rpx 28rpx;
-  border-radius: 32rpx;
-  font-size: 28rpx;
-  color: #666666;
-  background-color: #F0F0F0;
-  margin-right: 16rpx;
-  flex-shrink: 0;
-}
-
-.category-tag-active {
-  background-color: #E8553A;
-  color: #FFFFFF;
-}
-
-/* 活动列表 */
-.activity-list {
-  padding: 0 24rpx;
-}
-
-/* 活动卡片 */
-.activity-card {
-  display: flex;
+/* ====== 顶部区域 ====== */
+.header-area {
+  position: relative;
   overflow: hidden;
-  margin-bottom: 24rpx;
-  padding: 0;
 }
 
-.activity-card:active {
-  opacity: 0.9;
+.header-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 480rpx;
+  background: linear-gradient(180deg, #D4515E 0%, #E8726E 60%, #F7F8FA 100%);
+  border-radius: 0 0 40rpx 40rpx;
 }
 
-/* 活动图片 */
-.activity-image {
-  width: 220rpx;
-  height: 220rpx;
-  flex-shrink: 0;
+.header-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 28rpx;
 }
 
-.activity-img {
-  width: 220rpx;
-  height: 220rpx;
-}
-
-.activity-image-placeholder {
+/* 顶部栏 */
+.top-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #FFE8E3, #FFD4CC);
+  padding: 24rpx 0 16rpx;
 }
 
-.placeholder-text {
-  font-size: 28rpx;
-  color: #E8553A;
+.app-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 36rpx;
+  padding: 14rpx 24rpx;
+  backdrop-filter: blur(10px);
+}
+
+.search-icon {
+  font-size: 26rpx;
+  margin-right: 12rpx;
+}
+
+.search-placeholder {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ====== 轮播图 ====== */
+.banner-swiper {
+  height: 240rpx;
+  margin-top: 8rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.banner-card {
+  height: 240rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40rpx;
+  margin: 0 4rpx;
+}
+
+.banner-text {
+  flex: 1;
+}
+
+.banner-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8rpx;
+  text-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+}
+
+.banner-subtitle {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.banner-icon {
+  font-size: 80rpx;
+  flex-shrink: 0;
+  margin-left: 20rpx;
+}
+
+/* ====== 分类 ====== */
+.category-section {
+  padding: 24rpx 0 8rpx;
+}
+
+.category-scroll {
+  white-space: nowrap;
+  padding: 0 28rpx;
+}
+
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 14rpx 24rpx;
+  border-radius: 36rpx;
+  background: #FFFFFF;
+  margin-right: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+  border: 2rpx solid transparent;
+  transition: all 0.2s;
+}
+
+.category-pill-icon {
+  font-size: 26rpx;
+  margin-right: 8rpx;
+}
+
+.category-pill-name {
+  font-size: 26rpx;
+  color: #666666;
   font-weight: 500;
 }
 
-/* 活动信息 */
-.activity-info {
+.category-pill-active {
+  background: linear-gradient(135deg, #D4515E, #E8726E);
+  border-color: transparent;
+  box-shadow: 0 4rpx 16rpx rgba(212, 81, 94, 0.25);
+}
+
+.category-pill-active .category-pill-name {
+  color: #FFFFFF;
+}
+
+/* ====== 热门推荐 ====== */
+.hot-section {
+  padding: 0 28rpx;
+}
+
+.hot-scroll {
+  white-space: nowrap;
+  margin-top: 4rpx;
+}
+
+.hot-card {
+  display: inline-flex;
+  width: 480rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
+  vertical-align: top;
+}
+
+.hot-card:active {
+  transform: scale(0.97);
+}
+
+.hot-card-cover {
+  width: 160rpx;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #FFE8E3, #FFD4CC);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 16rpx;
+}
+
+.hot-card-category {
+  font-size: 20rpx;
+  color: #D4515E;
+  font-weight: 600;
+  background: rgba(255,255,255,0.8);
+  padding: 2rpx 10rpx;
+  border-radius: 6rpx;
+  margin-bottom: 8rpx;
+}
+
+.hot-card-icon {
+  font-size: 48rpx;
+}
+
+.hot-card-info {
   flex: 1;
-  padding: 20rpx 24rpx;
+  padding: 16rpx 20rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
 }
 
-.activity-title {
-  font-size: 34rpx;
+.hot-card-title {
+  font-size: 28rpx;
   font-weight: 600;
-  color: #1a1a1a;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-bottom: 12rpx;
+  color: #1A1A1A;
+  line-height: 1.4;
 }
 
-/* 元信息 */
-.meta-row {
+.hot-card-meta {
+  font-size: 22rpx;
+  color: #999999;
+  margin-top: 6rpx;
+}
+
+.hot-card-footer {
   display: flex;
   align-items: center;
-  margin-bottom: 6rpx;
+  justify-content: space-between;
+  margin-top: 8rpx;
 }
 
-.meta-icon {
-  font-size: 26rpx;
-  margin-right: 8rpx;
+.hot-card-people {
+  font-size: 22rpx;
+  color: #666666;
+  font-weight: 500;
+}
+
+/* ====== 活动列表 ====== */
+.activity-section {
+  padding: 0 28rpx;
+}
+
+.activity-list {
+  margin-top: 4rpx;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.activity-item:active {
+  background: #FAFAFA;
+}
+
+.activity-item-left {
   flex-shrink: 0;
+  margin-right: 24rpx;
 }
 
-.meta-text {
+.activity-item-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: linear-gradient(135deg, #FFF0ED, #FFE0DA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+}
+
+.activity-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-item-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 8rpx;
+}
+
+.activity-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.meta-item {
   font-size: 24rpx;
-  color: #888888;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: #999999;
 }
 
-/* 底部标签 */
-.activity-footer {
+.activity-item-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 12rpx;
 }
 
-.activity-category-tag {
-  font-size: 22rpx;
-  padding: 4rpx 16rpx;
-  border-radius: 8rpx;
-  background-color: #FFF0ED;
-  color: #E8553A;
+.activity-item-tags {
+  display: flex;
+  gap: 8rpx;
 }
 
-.tag-small {
-  font-size: 22rpx;
-}
-
-.activity-status {
+.activity-item-people {
   font-size: 24rpx;
-  font-weight: 500;
 }
 
-.status-open {
-  color: #07C160;
-}
-
-.status-full {
-  color: #FF9500;
-}
-
-.status-ended {
-  color: #999999;
-}
-
-.status-cancelled {
-  color: #FF3B30;
-}
-
-/* 加载/空状态 */
-.loading-box,
-.no-more {
-  text-align: center;
-  padding: 40rpx;
-  color: #999999;
+.people-num {
+  font-weight: 700;
+  color: #D4515E;
   font-size: 28rpx;
 }
 
-.empty-icon {
-  font-size: 80rpx;
+.people-total {
+  color: #999999;
+}
+
+.activity-item-arrow {
+  font-size: 36rpx;
+  color: #CCCCCC;
+  margin-left: 12rpx;
+  flex-shrink: 0;
+}
+
+/* ====== 底部状态 ====== */
+.no-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx 0;
+  gap: 16rpx;
+}
+
+.no-more-line {
+  width: 60rpx;
+  height: 1rpx;
+  background: #DDDDDD;
+}
+
+.no-more-text {
+  font-size: 22rpx;
+  color: #CCCCCC;
 }
